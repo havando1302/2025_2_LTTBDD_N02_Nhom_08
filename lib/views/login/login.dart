@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:musicbox/constants/app_colors.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -151,6 +152,49 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
+                    const SizedBox(height: 32),
+                    Row(
+                      children: [
+                        const Expanded(child: Divider()),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: Text(
+                            "Hoặc tiếp tục với",
+                            style: TextStyle(color: Color(MyColor.grey)),
+                          ),
+                        ),
+                        const Expanded(child: Divider()),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        _social('assets/icons/google.png', false),
+                        _social('assets/icons/facebook.svg', true),
+                        _social('assets/icons/apple.svg', true),
+                      ],
+                    ),
+
+                    const SizedBox(height: 24),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Bạn chưa có tài khoản? ",
+                          style: TextStyle(color: Color(MyColor.grey)),
+                        ),
+                        Text(
+                          "Đăng ký",
+                          style: TextStyle(
+                            color: Color(MyColor.pr4),
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
@@ -158,6 +202,21 @@ class _LoginPageState extends State<LoginPage> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _social(String path, bool svg) {
+    return Container(
+      width: 56,
+      height: 44,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      alignment: Alignment.center,
+      child: svg
+          ? SvgPicture.asset(path, width: 24)
+          : Image.asset(path, width: 24),
     );
   }
 }
