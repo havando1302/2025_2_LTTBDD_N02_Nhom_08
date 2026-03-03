@@ -40,6 +40,36 @@ class _LoginPageState extends State<LoginPage> {
                         color: Colors.white,
                       ),
                     ),
+                    const SizedBox(height: 24),
+                    Text(
+                      "Login",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Color(MyColor.se5),
+                      ),
+                    ),
+                    const SizedBox(height: 6),
+
+                    Text(
+                      "Đăng nhập để tiếp tục nghe nhạc",
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Color(MyColor.grey),
+                      ),
+                    ),
+
+                    const SizedBox(height: 32),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Email",
+                        style: const TextStyle(
+                          color: Color(MyColor.white),
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
