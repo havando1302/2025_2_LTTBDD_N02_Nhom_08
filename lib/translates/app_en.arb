@@ -1,0 +1,20 @@
+{
+  "@@locale": "en",
+  "login": "Login",
+  "loginSubtitle": "Login to continue listening",
+  "email": "Email",
+  "password": "Password",
+  "enterPassword": "Enter your password",
+  "forgotPassword": "Forgot password?",
+  "fillAll": "Please enter all information",
+  "welcome": "Welcome",
+  "invalidLogin": "Invalid email or password",
+  "orContinue": "Or continue with",
+  "noAccount": "Don’t have an account? ",
+  "signUp": "Sign up now",
+  "home": "Home",
+  "library": "Library",
+  "search": "Search",
+  "profile": "Profile"
+
+}

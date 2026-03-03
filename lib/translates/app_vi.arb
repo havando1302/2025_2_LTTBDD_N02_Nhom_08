@@ -1,0 +1,19 @@
+{
+  "@@locale": "vi",
+  "login": "Đăng nhập",
+  "loginSubtitle": "Đăng nhập để tiếp tục nghe nhạc",
+  "email": "Email",
+  "password": "Mật khẩu",
+  "enterPassword": "Nhập mật khẩu",
+  "forgotPassword": "Quên mật khẩu?",
+  "fillAll": "Vui lòng nhập đầy đủ thông tin",
+  "welcome": "Xin chào",
+  "invalidLogin": "Sai email hoặc mật khẩu",
+  "orContinue": "Hoặc tiếp tục với",
+  "noAccount": "Chưa có tài khoản? ",
+  "signUp": "Đăng ký ngay",
+  "home": "Trang chủ",
+  "library": "Thư viện",
+  "search": "Tìm kiếm",
+  "profile": "Cá nhân"
+}
