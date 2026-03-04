@@ -174,6 +174,101 @@ class _HomePageState extends State<HomePage> {
               );
             },
           ),
+          const SizedBox(height: 20),
+          // Những bài hát lọt vào top bảng xếp hạng.
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: Color(MyColor.se1),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Top BXH',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Color(MyColor.white),
+                  ),
+                ),
+                const SizedBox(height: 10),
+
+                ...List.generate(topSongs.length, (index) {
+                  final song = topSongs[index];
+
+                  return Container(
+                    margin: const EdgeInsets.only(bottom: 10),
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: Color(MyColor.pr3),
+                      borderRadius: BorderRadius.circular(14),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.08),
+                          blurRadius: 8,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      children: [
+                        Text(
+                          '#${index + 1}',
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color(MyColor.pr4),
+                          ),
+                        ),
+
+                        const SizedBox(width: 12),
+
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Image.asset(
+                            song.imageUrl,
+                            width: 40,
+                            height: 40,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+
+                        const SizedBox(width: 12),
+
+                        Expanded(
+                          child: Text(
+                            song.title,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              color: Color(MyColor.white),
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+
+                        const Icon(
+                          Icons.play_arrow,
+                          color: Color(MyColor.white),
+                        ),
+                      ],
+                    ),
+                  );
+                }),
+
+                Center(
+                  child: TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'Xem tất cả >>',
+                      style: TextStyle(color: Color(MyColor.pr4)),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
