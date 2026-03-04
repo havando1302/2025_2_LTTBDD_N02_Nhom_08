@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:musicbox/constants/app_colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
+import 'package:go_router/go_router.dart';
+import 'package:musicbox/constants/app_colors.dart';
+import 'package:musicbox/controllers/user_controller.dart';
+import 'package:musicbox/models/user_model.dart';
+import 'package:musicbox/providers/app_provider.dart';
+import 'package:musicbox/translates/app_localizations.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -13,10 +19,16 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
+  final UserController userController = UserController();
+
   bool obscurePassword = true;
 
   @override
   Widget build(BuildContext context) {
+    final localeProvider = context.watch<LocaleProvider>();
+    final lang = localeProvider.locale.languageCode.toUpperCase();
+    final t = AppLocalizations.of(context)!;
+
     return Scaffold(
       backgroundColor: Color(MyColor.pr1),
       body: SafeArea(
@@ -41,9 +53,10 @@ class _LoginPageState extends State<LoginPage> {
                         color: Colors.white,
                       ),
                     ),
+
                     const SizedBox(height: 24),
                     Text(
-                      "Login",
+                      t.login,
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -53,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(height: 6),
 
                     Text(
-                      "Đăng nhập để tiếp tục nghe nhạc",
+                      t.loginSubtitle,
                       style: TextStyle(
                         fontSize: 14,
                         color: Color(MyColor.grey),
@@ -64,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        "Email",
+                        t.email,
                         style: const TextStyle(
                           color: Color(MyColor.white),
                           fontWeight: FontWeight.w600,
@@ -73,6 +86,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     const SizedBox(height: 6),
                     TextField(
+                      controller: emailController,
                       decoration: InputDecoration(
                         hintText: "name@gmail.com",
                         filled: true,
@@ -86,11 +100,12 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
+
                     const SizedBox(height: 16),
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        "Mật Khẩu",
+                        t.password,
                         style: const TextStyle(
                           color: Color(MyColor.white),
                           fontWeight: FontWeight.w600,
@@ -99,9 +114,10 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     const SizedBox(height: 6),
                     TextField(
+                      controller: passwordController,
                       obscureText: obscurePassword,
                       decoration: InputDecoration(
-                        hintText: "Nhập mật khẩu",
+                        hintText: t.enterPassword,
                         filled: true,
                         fillColor: Colors.white,
                         suffixIcon: IconButton(
@@ -126,12 +142,14 @@ class _LoginPageState extends State<LoginPage> {
                       child: TextButton(
                         onPressed: () {},
                         child: Text(
-                          "Quên mật khẩu?",
+                          t.forgotPassword,
                           style: TextStyle(color: Color(MyColor.pr4)),
                         ),
                       ),
                     ),
+
                     const SizedBox(height: 24),
+
                     SizedBox(
                       width: double.infinity,
                       height: 48,
@@ -142,9 +160,29 @@ class _LoginPageState extends State<LoginPage> {
                             borderRadius: BorderRadius.circular(24),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          final email = emailController.text.trim();
+                          final pass = passwordController.text.trim();
+
+                          if (email.isEmpty || pass.isEmpty) {
+                            _showSnack(t.fillAll);
+                            return;
+                          }
+
+                          final UserModel? user = userController.login(
+                            email: email,
+                            password: pass,
+                          );
+
+                          if (user != null) {
+                            _showSnack("${t.welcome} ${user.name}");
+                            context.go('/home');
+                          } else {
+                            _showSnack(t.invalidLogin);
+                          }
+                        },
                         child: Text(
-                          "Đăng Nhập",
+                          t.login,
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
@@ -152,6 +190,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
+
                     const SizedBox(height: 32),
                     Row(
                       children: [
@@ -159,13 +198,14 @@ class _LoginPageState extends State<LoginPage> {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8),
                           child: Text(
-                            "Hoặc tiếp tục với",
+                            t.orContinue,
                             style: TextStyle(color: Color(MyColor.grey)),
                           ),
                         ),
                         const Expanded(child: Divider()),
                       ],
                     ),
+
                     const SizedBox(height: 16),
 
                     Row(
@@ -183,11 +223,11 @@ class _LoginPageState extends State<LoginPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Bạn chưa có tài khoản? ",
+                          t.noAccount,
                           style: TextStyle(color: Color(MyColor.grey)),
                         ),
                         Text(
-                          "Đăng ký",
+                          t.signUp,
                           style: TextStyle(
                             color: Color(MyColor.pr4),
                             fontWeight: FontWeight.w600,
@@ -196,6 +236,31 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                     ),
                   ],
+                ),
+              ),
+            ),
+
+            Positioned(
+              top: 12,
+              right: 16,
+              child: GestureDetector(
+                onTap: () => context.read<LocaleProvider>().toggle(),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 6,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Row(
+                    children: [
+                      const Icon(Icons.language, size: 16),
+                      const SizedBox(width: 6),
+                      Text(lang),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -217,6 +282,18 @@ class _LoginPageState extends State<LoginPage> {
       child: svg
           ? SvgPicture.asset(path, width: 24)
           : Image.asset(path, width: 24),
+    );
+  }
+
+  void _showSnack(String msg) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          msg,
+          style: TextStyle(color: Color(MyColor.black), fontSize: 24),
+        ),
+        backgroundColor: Color(MyColor.pr4),
+      ),
     );
   }
 }
