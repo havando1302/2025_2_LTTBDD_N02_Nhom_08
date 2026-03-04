@@ -269,6 +269,119 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
+          const SizedBox(height: 20),
+
+          // Những bài hát mới phát hành theo quốc gia.
+          const Text(
+            'Mới phát hành',
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Color(MyColor.white),
+            ),
+          ),
+          const SizedBox(height: 8),
+
+          Row(
+            children: ['Tất cả', 'Việt Nam', 'Quốc tế'].map((title) {
+              final isSelected = selectedCountry == title;
+
+              return Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      selectedCountry = title;
+                    });
+                  },
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0,
+                    backgroundColor: isSelected
+                        ? Color(MyColor.pr4)
+                        : Color(MyColor.white),
+                    foregroundColor: isSelected
+                        ? Color(MyColor.white)
+                        : Color(MyColor.black),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      side: BorderSide(
+                        color: isSelected
+                            ? Colors.transparent
+                            : Color(MyColor.grey),
+                      ),
+                    ),
+                  ),
+                  child: Text(title),
+                ),
+              );
+            }).toList(),
+          ),
+
+          const SizedBox(height: 12),
+
+          ListView.separated(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: filteredSongs.length,
+            separatorBuilder: (_, __) => const SizedBox(height: 12),
+            itemBuilder: (context, index) {
+              final song = filteredSongs[index];
+
+              return Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Color(MyColor.pr3),
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.08),
+                      blurRadius: 8,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset(
+                        song.imageUrl,
+                        width: 56,
+                        height: 56,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            song.title,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w600,
+                              color: Color(MyColor.white),
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            song.country,
+                            style: const TextStyle(
+                              fontSize: 12,
+                              color: Color(MyColor.grey),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Icon(Icons.play_arrow, color: Color(MyColor.white)),
+                  ],
+                ),
+              );
+            },
+          ),
         ],
       ),
     );
