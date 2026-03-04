@@ -93,6 +93,87 @@ class _HomePageState extends State<HomePage> {
               },
             ),
           ),
+          const SizedBox(height: 20),
+          // Những bài hát gợi ý cho người dùng.
+          const Text(
+            'Gợi ý cho bạn',
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Color(MyColor.white),
+            ),
+          ),
+          const SizedBox(height: 8),
+
+          ListView.separated(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: SongModel.mockSongs.length,
+            separatorBuilder: (_, __) => const SizedBox(height: 12),
+            itemBuilder: (context, index) {
+              final song = SongModel.mockSongs[index];
+
+              return Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Color(MyColor.pr3),
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.08),
+                      blurRadius: 8,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset(
+                        song.imageUrl,
+                        width: 56,
+                        height: 56,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            song.title,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w600,
+                              color: Color(MyColor.white),
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            song.country,
+                            style: const TextStyle(
+                              fontSize: 12,
+                              color: Color(MyColor.grey),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.favorite_border),
+                      onPressed: () {},
+                      tooltip: 'Thêm vào yêu thích',
+                    ),
+                    const SizedBox(width: 8),
+                    const Icon(Icons.more_vert, color: Color(MyColor.white)),
+                  ],
+                ),
+              );
+            },
+          ),
         ],
       ),
     );
