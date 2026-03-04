@@ -45,6 +45,54 @@ class _HomePageState extends State<HomePage> {
               color: Color(MyColor.white),
             ),
           ),
+          const SizedBox(height: 8),
+
+          SizedBox(
+            height: 180,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: AlbumModel.mockAlbums.length,
+              itemBuilder: (context, index) {
+                final album = AlbumModel.mockAlbums[index];
+
+                return Container(
+                  width: 140,
+                  margin: const EdgeInsets.only(right: 12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Image.asset(
+                          album.imageUrl,
+                          height: 120,
+                          width: 140,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        album.title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w600,
+                          color: Color(MyColor.white),
+                        ),
+                      ),
+                      Text(
+                        'Năm ${album.year}',
+                        style: const TextStyle(
+                          fontSize: 12,
+                          color: Color(MyColor.grey),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
         ],
       ),
     );
