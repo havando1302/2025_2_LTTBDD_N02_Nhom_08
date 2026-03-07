@@ -19,7 +19,18 @@ class _UserProfilePageState extends State<UserProfilePage> {
       backgroundColor: Color(MyColor.pr1),
       body: ListView(
         padding: const EdgeInsets.all(16),
-        children: [_buildHeader()],
+        children: [
+          _buildHeader(),
+          const SizedBox(height: 24),
+          const Text(
+            "Playlist gần đây",
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Color(MyColor.white),
+            ),
+          ),
+        ],
       ),
     );
   }
