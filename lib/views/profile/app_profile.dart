@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:musicbox/translates/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:musicbox/providers/app_provider.dart';
+import 'package:musicbox/views/widgets/album_detail_page.dart';
 
 class UserProfilePage extends StatefulWidget {
   const UserProfilePage({super.key});
@@ -175,8 +176,17 @@ class _UserProfilePageState extends State<UserProfilePage> {
               ],
             ),
           ),
-
-          const Icon(Icons.chevron_right, color: Color(MyColor.grey)),
+          IconButton(
+            icon: const Icon(Icons.chevron_right, color: Color(MyColor.grey)),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => AlbumDetailPage(album: album),
+                ),
+              );
+            },
+          ),
         ],
       ),
     );
