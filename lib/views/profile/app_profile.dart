@@ -27,6 +27,8 @@ class _UserProfilePageState extends State<UserProfilePage> {
         children: [
           _buildHeader(),
           const SizedBox(height: 24),
+          _buildDeveloperInfoWid(),
+          const SizedBox(height: 24),
           Text(
             t.playlist,
             style: TextStyle(
@@ -335,6 +337,115 @@ class _UserProfilePageState extends State<UserProfilePage> {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildDeveloperInfoWid() {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [Color(MyColor.pr4), Color(MyColor.pr5)],
+        ),
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const [
+          Text(
+            "Thông tin nhà phát triển",
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Color(MyColor.white),
+            ),
+          ),
+
+          SizedBox(height: 12),
+
+          Row(
+            children: [
+              Text(
+                "Thành viên 1:  ",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Color(MyColor.white),
+                ),
+              ),
+              Text(
+                "Hà Văn Đô",
+                style: TextStyle(color: Color(MyColor.grey), fontSize: 16),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Text(
+                "MSSV:  ",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Color(MyColor.white),
+                ),
+              ),
+              Text(
+                "23010406",
+                style: TextStyle(color: Color(MyColor.grey), fontSize: 16),
+              ),
+            ],
+          ),
+
+          SizedBox(height: 8),
+
+          Row(
+            children: [
+              Text(
+                "Thành viên 2:  ",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Color(MyColor.white),
+                ),
+              ),
+              Text(
+                "Nguyễn Quang Thọ",
+                style: TextStyle(color: Color(MyColor.grey), fontSize: 16),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Text(
+                "MSSV:  ",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Color(MyColor.white),
+                ),
+              ),
+              Text(
+                "23010162",
+                style: TextStyle(color: Color(MyColor.grey), fontSize: 16),
+              ),
+            ],
+          ),
+
+          SizedBox(height: 12),
+
+          Row(
+            children: [
+              Text(
+                "Giáo viên hướng dẫn:  ",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Color(MyColor.white),
+                ),
+              ),
+              Text(
+                "ThS. Nguyễn Xuân Quế",
+                style: TextStyle(color: Color(MyColor.grey), fontSize: 16),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
