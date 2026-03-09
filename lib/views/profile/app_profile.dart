@@ -3,6 +3,9 @@ import 'package:musicbox/constants/app_colors.dart';
 import 'package:musicbox/models/user_model.dart';
 import 'package:musicbox/models/albums_model.dart';
 import 'package:go_router/go_router.dart';
+import 'package:musicbox/translates/app_localizations.dart';
+import 'package:provider/provider.dart';
+import 'package:musicbox/providers/app_provider.dart';
 
 class UserProfilePage extends StatefulWidget {
   const UserProfilePage({super.key});
@@ -50,7 +53,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
           _buildSettingItem(Icons.download, "Tải xuống"),
           _buildSettingItem(Icons.lock, "Quyền riêng tư"),
           _buildSettingItem(Icons.help_outline, "Trợ giúp"),
-          _buildSettingItem(Icons.language, "Ngôn ngữ", trailing: "Tiếng Việt"),
+          _buildLanguageItem(),
           const SizedBox(height: 24),
           _buildLogoutButton(),
 
@@ -174,7 +177,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
     );
   }
 
-  Widget _buildSettingItem(IconData icon, String title, {String? trailing}) {
+  Widget _buildSettingItem(IconData icon, String title) {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(14),
@@ -196,15 +199,115 @@ class _UserProfilePageState extends State<UserProfilePage> {
               ),
             ),
           ),
-
-          if (trailing != null)
-            Text(trailing, style: const TextStyle(color: Color(MyColor.grey))),
-
-          const SizedBox(width: 6),
-
-          const Icon(Icons.chevron_right, color: Color(MyColor.grey)),
         ],
       ),
+    );
+  }
+
+  Widget _buildLanguageItem() {
+    final localeProvider = context.watch<LocaleProvider>();
+
+    String language = localeProvider.locale.languageCode == 'vi'
+        ? "Tiếng Việt"
+        : "English";
+
+    return GestureDetector(
+      onTap: () {
+        _showLanguage();
+      },
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 12),
+        padding: const EdgeInsets.all(14),
+        decoration: BoxDecoration(
+          color: Color(MyColor.pr3),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Row(
+          children: [
+            const Icon(Icons.language, color: Color(MyColor.pr4)),
+            const SizedBox(width: 12),
+
+            const Expanded(
+              child: Text(
+                "Ngôn ngữ",
+                style: TextStyle(
+                  color: Color(MyColor.white),
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+
+            Text(language, style: const TextStyle(color: Color(MyColor.grey))),
+
+            const SizedBox(width: 6),
+
+            const Icon(Icons.chevron_right, color: Color(MyColor.grey)),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _showLanguage() {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Color(MyColor.pr2),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const SizedBox(height: 16),
+
+            const Text(
+              "Chọn ngôn ngữ",
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Color(MyColor.white),
+              ),
+            ),
+
+            const SizedBox(height: 20),
+
+            ListTile(
+              leading: Image.asset(
+                'assets/icons/vn.png',
+                width: 24,
+                height: 24,
+              ),
+              title: const Text(
+                "Tiếng Việt",
+                style: TextStyle(color: Color(MyColor.white)),
+              ),
+              onTap: () {
+                context.read<LocaleProvider>().setLocale(const Locale('vi'));
+                Navigator.pop(context);
+              },
+            ),
+
+            ListTile(
+              leading: Image.asset(
+                'assets/icons/en.png',
+                width: 24,
+                height: 24,
+              ),
+              title: const Text(
+                "English",
+                style: TextStyle(color: Color(MyColor.white)),
+              ),
+              onTap: () {
+                context.read<LocaleProvider>().setLocale(const Locale('en'));
+                Navigator.pop(context);
+              },
+            ),
+
+            const SizedBox(height: 20),
+          ],
+        );
+      },
     );
   }
 
