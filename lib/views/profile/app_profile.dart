@@ -30,6 +30,10 @@ class _UserProfilePageState extends State<UserProfilePage> {
               color: Color(MyColor.white),
             ),
           ),
+          const SizedBox(height: 12),
+          ...AlbumModel.mockAlbums
+              .take(3)
+              .map((album) => _buildAlbumItem(album)),
         ],
       ),
     );
@@ -94,6 +98,56 @@ class _UserProfilePageState extends State<UserProfilePage> {
               ],
             ),
           ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildAlbumItem(AlbumModel album) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Color(MyColor.pr3),
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Row(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Image.asset(
+              album.imageUrl,
+              width: 56,
+              height: 56,
+              fit: BoxFit.cover,
+            ),
+          ),
+          const SizedBox(width: 12),
+
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  album.title,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w600,
+                    color: Color(MyColor.white),
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  "Năm ${album.year}",
+                  style: const TextStyle(
+                    fontSize: 12,
+                    color: Color(MyColor.grey),
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          const Icon(Icons.chevron_right, color: Color(MyColor.grey)),
         ],
       ),
     );
