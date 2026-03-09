@@ -43,6 +43,13 @@ class _UserProfilePageState extends State<UserProfilePage> {
               color: Color(MyColor.white),
             ),
           ),
+          const SizedBox(height: 12),
+
+          _buildSettingItem(Icons.notifications, "Thông báo"),
+          _buildSettingItem(Icons.download, "Tải xuống"),
+          _buildSettingItem(Icons.lock, "Quyền riêng tư"),
+          _buildSettingItem(Icons.help_outline, "Trợ giúp"),
+          _buildSettingItem(Icons.language, "Ngôn ngữ", trailing: "Tiếng Việt"),
         ],
       ),
     );
@@ -155,6 +162,40 @@ class _UserProfilePageState extends State<UserProfilePage> {
               ],
             ),
           ),
+
+          const Icon(Icons.chevron_right, color: Color(MyColor.grey)),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSettingItem(IconData icon, String title, {String? trailing}) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: Color(MyColor.pr3),
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Row(
+        children: [
+          Icon(icon, color: Color(MyColor.pr4)),
+          const SizedBox(width: 12),
+
+          Expanded(
+            child: Text(
+              title,
+              style: const TextStyle(
+                color: Color(MyColor.white),
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+
+          if (trailing != null)
+            Text(trailing, style: const TextStyle(color: Color(MyColor.grey))),
+
+          const SizedBox(width: 6),
 
           const Icon(Icons.chevron_right, color: Color(MyColor.grey)),
         ],
