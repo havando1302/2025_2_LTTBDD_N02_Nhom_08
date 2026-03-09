@@ -34,6 +34,15 @@ class _UserProfilePageState extends State<UserProfilePage> {
           ...AlbumModel.mockAlbums
               .take(3)
               .map((album) => _buildAlbumItem(album)),
+          const SizedBox(height: 24),
+          const Text(
+            "Cài đặt",
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Color(MyColor.white),
+            ),
+          ),
         ],
       ),
     );
