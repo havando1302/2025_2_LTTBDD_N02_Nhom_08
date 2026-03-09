@@ -50,6 +50,10 @@ class _UserProfilePageState extends State<UserProfilePage> {
           _buildSettingItem(Icons.lock, "Quyền riêng tư"),
           _buildSettingItem(Icons.help_outline, "Trợ giúp"),
           _buildSettingItem(Icons.language, "Ngôn ngữ", trailing: "Tiếng Việt"),
+          const SizedBox(height: 24),
+          _buildLogoutButton(),
+
+          const SizedBox(height: 40),
         ],
       ),
     );
@@ -199,6 +203,25 @@ class _UserProfilePageState extends State<UserProfilePage> {
 
           const Icon(Icons.chevron_right, color: Color(MyColor.grey)),
         ],
+      ),
+    );
+  }
+
+  Widget _buildLogoutButton() {
+    return Container(
+      height: 50,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: Color(MyColor.red)),
+      ),
+      child: Center(
+        child: Text(
+          "Đăng xuất",
+          style: TextStyle(
+            color: Color(MyColor.red),
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
     );
   }
