@@ -55,4 +55,43 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get profile => 'Profile';
+
+  @override
+  String get playlist => 'Recent Playlists';
+
+  @override
+  String get edit => 'Edit';
+
+  @override
+  String get settings => 'Settings';
+
+  @override
+  String get notifications => 'Notifications';
+
+  @override
+  String get downloads => 'Downloads';
+
+  @override
+  String get privacy => 'Privacy';
+
+  @override
+  String get help => 'Help';
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get year => 'Year';
+
+  @override
+  String get chooseLanguage => 'Choose language';
+
+  @override
+  String get vietnamese => 'Vietnamese';
+
+  @override
+  String get english => 'English';
+
+  @override
+  String get logout => 'Log out';
 }

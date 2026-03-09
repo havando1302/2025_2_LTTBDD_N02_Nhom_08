@@ -15,5 +15,18 @@
   "home": "Trang chủ",
   "library": "Thư viện",
   "search": "Tìm kiếm",
-  "profile": "Cá nhân"
+  "profile": "Cá nhân",
+  "playlist": "Playlist gần đây",
+  "edit": "Chỉnh sửa",
+  "settings": "Cài đặt",
+  "notifications": "Thông báo",
+  "downloads": "Tải xuống",
+  "privacy": "Quyền riêng tư",
+  "help": "Trợ giúp",
+  "language": "Ngôn ngữ",
+  "year" : "Năm",
+  "chooseLanguage": "Chọn ngôn ngữ",
+  "vietnamese": "Tiếng Việt",
+  "english": "Tiếng Anh",
+  "logout": "Đăng xuất"
 }

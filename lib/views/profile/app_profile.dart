@@ -19,6 +19,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
     return Scaffold(
       backgroundColor: Color(MyColor.pr1),
       body: ListView(
@@ -26,8 +27,8 @@ class _UserProfilePageState extends State<UserProfilePage> {
         children: [
           _buildHeader(),
           const SizedBox(height: 24),
-          const Text(
-            "Playlist gần đây",
+          Text(
+            t.playlist,
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
@@ -39,8 +40,8 @@ class _UserProfilePageState extends State<UserProfilePage> {
               .take(3)
               .map((album) => _buildAlbumItem(album)),
           const SizedBox(height: 24),
-          const Text(
-            "Cài đặt",
+          Text(
+            t.settings,
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
@@ -49,10 +50,10 @@ class _UserProfilePageState extends State<UserProfilePage> {
           ),
           const SizedBox(height: 12),
 
-          _buildSettingItem(Icons.notifications, "Thông báo"),
-          _buildSettingItem(Icons.download, "Tải xuống"),
-          _buildSettingItem(Icons.lock, "Quyền riêng tư"),
-          _buildSettingItem(Icons.help_outline, "Trợ giúp"),
+          _buildSettingItem(Icons.notifications, t.notifications),
+          _buildSettingItem(Icons.download, t.downloads),
+          _buildSettingItem(Icons.lock, t.privacy),
+          _buildSettingItem(Icons.help_outline, t.help),
           _buildLanguageItem(),
           const SizedBox(height: 24),
           _buildLogoutButton(),
@@ -64,6 +65,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
   }
 
   Widget _buildHeader() {
+    final t = AppLocalizations.of(context)!;
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -114,8 +116,8 @@ class _UserProfilePageState extends State<UserProfilePage> {
                     color: Color(MyColor.white).withOpacity(0.15),
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: const Text(
-                    "Chỉnh sửa",
+                  child: Text(
+                    t.edit,
                     style: TextStyle(fontSize: 12, color: Color(MyColor.white)),
                   ),
                 ),
@@ -128,6 +130,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
   }
 
   Widget _buildAlbumItem(AlbumModel album) {
+    final t = AppLocalizations.of(context)!;
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(12),
@@ -161,7 +164,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  "Năm ${album.year}",
+                  "${t.year} ${album.year}",
                   style: const TextStyle(
                     fontSize: 12,
                     color: Color(MyColor.grey),
@@ -206,7 +209,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
 
   Widget _buildLanguageItem() {
     final localeProvider = context.watch<LocaleProvider>();
-
+    final t = AppLocalizations.of(context)!;
     String language = localeProvider.locale.languageCode == 'vi'
         ? "Tiếng Việt"
         : "English";
@@ -227,9 +230,9 @@ class _UserProfilePageState extends State<UserProfilePage> {
             const Icon(Icons.language, color: Color(MyColor.pr4)),
             const SizedBox(width: 12),
 
-            const Expanded(
+            Expanded(
               child: Text(
-                "Ngôn ngữ",
+                t.language,
                 style: TextStyle(
                   color: Color(MyColor.white),
                   fontWeight: FontWeight.w500,
@@ -249,6 +252,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
   }
 
   void _showLanguage() {
+    final t = AppLocalizations.of(context)!;
     showModalBottomSheet(
       context: context,
       backgroundColor: Color(MyColor.pr2),
@@ -261,8 +265,8 @@ class _UserProfilePageState extends State<UserProfilePage> {
           children: [
             const SizedBox(height: 16),
 
-            const Text(
-              "Chọn ngôn ngữ",
+            Text(
+              t.chooseLanguage,
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
@@ -278,8 +282,8 @@ class _UserProfilePageState extends State<UserProfilePage> {
                 width: 24,
                 height: 24,
               ),
-              title: const Text(
-                "Tiếng Việt",
+              title: Text(
+                t.vietnamese,
                 style: TextStyle(color: Color(MyColor.white)),
               ),
               onTap: () {
@@ -294,8 +298,8 @@ class _UserProfilePageState extends State<UserProfilePage> {
                 width: 24,
                 height: 24,
               ),
-              title: const Text(
-                "English",
+              title: Text(
+                t.english,
                 style: TextStyle(color: Color(MyColor.white)),
               ),
               onTap: () {

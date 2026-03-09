@@ -55,4 +55,43 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get profile => 'Cá nhân';
+
+  @override
+  String get playlist => 'Playlist gần đây';
+
+  @override
+  String get edit => 'Chỉnh sửa';
+
+  @override
+  String get settings => 'Cài đặt';
+
+  @override
+  String get notifications => 'Thông báo';
+
+  @override
+  String get downloads => 'Tải xuống';
+
+  @override
+  String get privacy => 'Quyền riêng tư';
+
+  @override
+  String get help => 'Trợ giúp';
+
+  @override
+  String get language => 'Ngôn ngữ';
+
+  @override
+  String get year => 'Năm';
+
+  @override
+  String get chooseLanguage => 'Chọn ngôn ngữ';
+
+  @override
+  String get vietnamese => 'Tiếng Việt';
+
+  @override
+  String get english => 'Tiếng Anh';
+
+  @override
+  String get logout => 'Đăng xuất';
 }

@@ -15,6 +15,18 @@
   "home": "Home",
   "library": "Library",
   "search": "Search",
-  "profile": "Profile"
-
+  "profile": "Profile",
+  "playlist": "Recent Playlists",
+  "edit": "Edit",
+   "settings": "Settings",
+  "notifications": "Notifications",
+  "downloads": "Downloads",
+  "privacy": "Privacy",
+  "help": "Help",
+  "language": "Language",
+  "year" : "Year",
+  "chooseLanguage": "Choose language",
+  "vietnamese": "Vietnamese",
+  "english": "English",
+  "logout": "Log out"
 }
