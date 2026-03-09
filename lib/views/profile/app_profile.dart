@@ -342,6 +342,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
   }
 
   Widget _buildDeveloperInfoWid() {
+    final t = AppLocalizations.of(context)!;
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -352,9 +353,9 @@ class _UserProfilePageState extends State<UserProfilePage> {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
+        children: [
           Text(
-            "Thông tin nhà phát triển",
+            t.developerInfo,
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
@@ -367,14 +368,14 @@ class _UserProfilePageState extends State<UserProfilePage> {
           Row(
             children: [
               Text(
-                "Thành viên 1:  ",
+                t.member1,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Color(MyColor.white),
                 ),
               ),
               Text(
-                "Hà Văn Đô",
+                ":  Hà Văn Đô",
                 style: TextStyle(color: Color(MyColor.grey), fontSize: 16),
               ),
             ],
@@ -382,14 +383,14 @@ class _UserProfilePageState extends State<UserProfilePage> {
           Row(
             children: [
               Text(
-                "MSSV:  ",
+                t.studentId,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Color(MyColor.white),
                 ),
               ),
               Text(
-                "23010406",
+                ":  23010406",
                 style: TextStyle(color: Color(MyColor.grey), fontSize: 16),
               ),
             ],
@@ -400,14 +401,14 @@ class _UserProfilePageState extends State<UserProfilePage> {
           Row(
             children: [
               Text(
-                "Thành viên 2:  ",
+                t.member2,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Color(MyColor.white),
                 ),
               ),
               Text(
-                "Nguyễn Quang Thọ",
+                ":  Nguyễn Quang Thọ",
                 style: TextStyle(color: Color(MyColor.grey), fontSize: 16),
               ),
             ],
@@ -415,14 +416,14 @@ class _UserProfilePageState extends State<UserProfilePage> {
           Row(
             children: [
               Text(
-                "MSSV:  ",
+                t.studentId,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Color(MyColor.white),
                 ),
               ),
               Text(
-                "23010162",
+                ":  23010162",
                 style: TextStyle(color: Color(MyColor.grey), fontSize: 16),
               ),
             ],
@@ -433,14 +434,14 @@ class _UserProfilePageState extends State<UserProfilePage> {
           Row(
             children: [
               Text(
-                "Giáo viên hướng dẫn:  ",
+                t.supervisor,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Color(MyColor.white),
                 ),
               ),
               Text(
-                "ThS. Nguyễn Xuân Quế",
+                ":  ThS. Nguyễn Xuân Quế",
                 style: TextStyle(color: Color(MyColor.grey), fontSize: 16),
               ),
             ],

@@ -28,5 +28,10 @@
   "chooseLanguage": "Chọn ngôn ngữ",
   "vietnamese": "Tiếng Việt",
   "english": "Tiếng Anh",
-  "logout": "Đăng xuất"
+  "logout": "Đăng xuất",
+  "developerInfo": "Thông tin nhà phát triển",
+  "member1": "Thành viên 1",
+  "member2": "Thành viên 2",
+  "studentId": "MSSV",
+  "supervisor": "Giáo viên hướng dẫn"
 }

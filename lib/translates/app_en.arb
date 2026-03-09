@@ -28,5 +28,10 @@
   "chooseLanguage": "Choose language",
   "vietnamese": "Vietnamese",
   "english": "English",
-  "logout": "Log out"
+  "logout": "Log out",
+  "developerInfo": "Developer Information",
+  "member1": "Member 1",
+  "member2": "Member 2",
+  "studentId": "Student ID",
+  "supervisor": "Supervisor"
 }

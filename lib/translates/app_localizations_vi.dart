@@ -94,4 +94,19 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get logout => 'Đăng xuất';
+
+  @override
+  String get developerInfo => 'Thông tin nhà phát triển';
+
+  @override
+  String get member1 => 'Thành viên 1';
+
+  @override
+  String get member2 => 'Thành viên 2';
+
+  @override
+  String get studentId => 'MSSV';
+
+  @override
+  String get supervisor => 'Giáo viên hướng dẫn';
 }

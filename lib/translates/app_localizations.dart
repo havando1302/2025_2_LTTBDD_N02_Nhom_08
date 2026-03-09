@@ -271,6 +271,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Log out'**
   String get logout;
+
+  /// No description provided for @developerInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Developer Information'**
+  String get developerInfo;
+
+  /// No description provided for @member1.
+  ///
+  /// In en, this message translates to:
+  /// **'Member 1'**
+  String get member1;
+
+  /// No description provided for @member2.
+  ///
+  /// In en, this message translates to:
+  /// **'Member 2'**
+  String get member2;
+
+  /// No description provided for @studentId.
+  ///
+  /// In en, this message translates to:
+  /// **'Student ID'**
+  String get studentId;
+
+  /// No description provided for @supervisor.
+  ///
+  /// In en, this message translates to:
+  /// **'Supervisor'**
+  String get supervisor;
 }
 
 class _AppLocalizationsDelegate

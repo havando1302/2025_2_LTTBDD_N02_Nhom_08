@@ -94,4 +94,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get logout => 'Log out';
+
+  @override
+  String get developerInfo => 'Developer Information';
+
+  @override
+  String get member1 => 'Member 1';
+
+  @override
+  String get member2 => 'Member 2';
+
+  @override
+  String get studentId => 'Student ID';
+
+  @override
+  String get supervisor => 'Supervisor';
 }
