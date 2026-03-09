@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:musicbox/constants/app_colors.dart';
 import 'package:musicbox/models/user_model.dart';
 import 'package:musicbox/models/albums_model.dart';
+import 'package:go_router/go_router.dart';
 
 class UserProfilePage extends StatefulWidget {
   const UserProfilePage({super.key});
@@ -208,18 +209,23 @@ class _UserProfilePageState extends State<UserProfilePage> {
   }
 
   Widget _buildLogoutButton() {
-    return Container(
-      height: 50,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: Color(MyColor.red)),
-      ),
-      child: Center(
-        child: Text(
-          "Đăng xuất",
-          style: TextStyle(
-            color: Color(MyColor.red),
-            fontWeight: FontWeight.bold,
+    return GestureDetector(
+      onTap: () {
+        context.goNamed('login');
+      },
+      child: Container(
+        height: 50,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(color: Color(MyColor.red)),
+        ),
+        child: Center(
+          child: Text(
+            "Đăng xuất",
+            style: TextStyle(
+              color: Color(MyColor.red),
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),
