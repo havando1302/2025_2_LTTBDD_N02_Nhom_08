@@ -168,7 +168,10 @@ class _HomePageState extends State<HomePage> {
                       tooltip: 'Thêm vào yêu thích',
                     ),
                     const SizedBox(width: 8),
-                    const Icon(Icons.more_vert, color: Color(MyColor.white)),
+                    IconButton(
+                      icon: const Icon(Icons.more_vert),
+                      onPressed: _showMenu,
+                    ),
                   ],
                 ),
               );
@@ -384,6 +387,152 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+    );
+  }
+
+  void _showMenu() {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Color(MyColor.pr1),
+      isScrollControlled: true,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        return SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(height: 10),
+
+                Container(
+                  width: 40,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+
+                SizedBox(height: 10),
+
+                ListTile(
+                  leading: Icon(Icons.share_outlined, color: Colors.white),
+                  title: Text("Chia sẻ", style: TextStyle(color: Colors.white)),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+
+                ListTile(
+                  leading: Icon(Icons.diamond_outlined, color: Colors.white),
+                  title: Text(
+                    "Nghe nhạc không quảng cáo",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  trailing: Text(
+                    "Premium",
+                    style: TextStyle(color: Colors.green),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+
+                ListTile(
+                  leading: Icon(Icons.favorite_border, color: Colors.white),
+                  title: Text(
+                    "Thêm vào Bài hát ưa thích",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+
+                ListTile(
+                  leading: Icon(Icons.playlist_add, color: Colors.white),
+                  title: Text(
+                    "Thêm vào danh sách phát",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+
+                ListTile(
+                  leading: Icon(Icons.queue_music, color: Colors.white),
+                  title: Text(
+                    "Thêm vào Danh sách chờ",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+
+                ListTile(
+                  leading: Icon(Icons.radio, color: Colors.white),
+                  title: Text(
+                    "Truy cập radio",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+
+                ListTile(
+                  leading: Icon(Icons.album_outlined, color: Colors.white),
+                  title: Text(
+                    "Chuyển đến album",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+
+                ListTile(
+                  leading: Icon(Icons.person_outline, color: Colors.white),
+                  title: Text(
+                    "Chuyển tới trang nghệ sĩ",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+
+                ListTile(
+                  leading: Icon(Icons.event, color: Colors.white),
+                  title: Text(
+                    "Chuyển đến buổi biểu diễn của nghệ sĩ",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+
+                ListTile(
+                  leading: Icon(Icons.music_note_outlined, color: Colors.white),
+                  title: Text(
+                    "Xem thông tin ghi công của bài hát",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+
+                SizedBox(height: 20),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }
