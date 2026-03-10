@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:musicbox/models/songs_model.dart';
 import 'package:musicbox/models/albums_model.dart';
+import 'package:musicbox/models/artist_model.dart';
 import 'package:musicbox/constants/app_colors.dart';
 
 class PageLibrary extends StatefulWidget {
@@ -14,6 +15,30 @@ class _PageLibraryState extends State<PageLibrary> {
   int selectedTab = 0;
 
   final List<String> tabs = ["All", "Songs", "Albums", "Artists"];
+
+  List<dynamic> get filteredList {
+    if (selectedTab == 0) {
+      return [
+        ...SongModel.mockSongs,
+        ...AlbumModel.mockAlbums,
+        ...ArtistModel.mockArtists,
+      ];
+    }
+
+    if (tabs[selectedTab] == "Songs") {
+      return SongModel.mockSongs;
+    }
+
+    if (tabs[selectedTab] == "Albums") {
+      return AlbumModel.mockAlbums;
+    }
+
+    if (tabs[selectedTab] == "Artists") {
+      return ArtistModel.mockArtists;
+    }
+
+    return [];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -96,11 +121,25 @@ class _PageLibraryState extends State<PageLibrary> {
   }
 
   Widget _libraryList() {
-    return ListView(
-      children: [
-        ...SongModel.mockSongs.map((song) => _songItem(song)),
-        ...AlbumModel.mockAlbums.map((album) => _albumItem(album)),
-      ],
+    return ListView.builder(
+      itemCount: filteredList.length,
+      itemBuilder: (context, index) {
+        final item = filteredList[index];
+
+        if (item is SongModel) {
+          return _songItem(item);
+        }
+
+        if (item is AlbumModel) {
+          return _albumItem(item);
+        }
+
+        if (item is ArtistModel) {
+          return _artistItem(item);
+        }
+
+        return const SizedBox();
+      },
     );
   }
 
@@ -144,6 +183,23 @@ class _PageLibraryState extends State<PageLibrary> {
       subtitle: Text(
         "Album • ${album.year}",
         style: const TextStyle(color: Color(MyColor.grey)),
+      ),
+    );
+  }
+
+  Widget _artistItem(ArtistModel artist) {
+    return ListTile(
+      leading: CircleAvatar(
+        radius: 30,
+        backgroundImage: AssetImage(artist.imageUrl),
+      ),
+      title: Text(
+        artist.name,
+        style: const TextStyle(color: Color(MyColor.white)),
+      ),
+      subtitle: const Text(
+        "Artist",
+        style: TextStyle(color: Color(MyColor.grey)),
       ),
     );
   }
