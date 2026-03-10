@@ -16,8 +16,34 @@ class _PageLibraryState extends State<PageLibrary> {
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [],
+          children: [_header()],
         ),
+      ),
+    );
+  }
+
+  Widget _header() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const Text(
+            "Thư viện",
+            style: TextStyle(
+              fontSize: 28,
+              fontWeight: FontWeight.bold,
+              color: Color(MyColor.white),
+            ),
+          ),
+          Row(
+            children: const [
+              Icon(Icons.search, color: Color(MyColor.white)),
+              SizedBox(width: 20),
+              Icon(Icons.add, color: Color(MyColor.white)),
+            ],
+          ),
+        ],
       ),
     );
   }
