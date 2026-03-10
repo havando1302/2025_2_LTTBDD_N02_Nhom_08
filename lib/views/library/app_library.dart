@@ -20,7 +20,12 @@ class _PageLibraryState extends State<PageLibrary> {
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [_header(), _tabs()],
+          children: [
+            _header(),
+            _tabs(),
+            const SizedBox(height: 10),
+            Expanded(child: _libraryList()),
+          ],
         ),
       ),
     );
@@ -85,6 +90,15 @@ class _PageLibraryState extends State<PageLibrary> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _libraryList() {
+    return ListView.builder(
+      itemCount: 0,
+      itemBuilder: (context, index) {
+        return const SizedBox();
+      },
     );
   }
 }
