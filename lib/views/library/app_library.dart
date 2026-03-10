@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:musicbox/constants/app_colors.dart';
 import 'package:musicbox/models/songs_model.dart';
+import 'package:musicbox/models/albums_model.dart';
+import 'package:musicbox/constants/app_colors.dart';
 
 class PageLibrary extends StatefulWidget {
   const PageLibrary({super.key});
@@ -95,12 +96,11 @@ class _PageLibraryState extends State<PageLibrary> {
   }
 
   Widget _libraryList() {
-    return ListView.builder(
-      itemCount: SongModel.mockSongs.length,
-      itemBuilder: (context, index) {
-        final song = SongModel.mockSongs[index];
-        return _songItem(song);
-      },
+    return ListView(
+      children: [
+        ...SongModel.mockSongs.map((song) => _songItem(song)),
+        ...AlbumModel.mockAlbums.map((album) => _albumItem(album)),
+      ],
     );
   }
 
@@ -121,6 +121,28 @@ class _PageLibraryState extends State<PageLibrary> {
       ),
       subtitle: Text(
         song.country,
+        style: const TextStyle(color: Color(MyColor.grey)),
+      ),
+    );
+  }
+
+  Widget _albumItem(AlbumModel album) {
+    return ListTile(
+      leading: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: Image.asset(
+          album.imageUrl,
+          width: 60,
+          height: 60,
+          fit: BoxFit.cover,
+        ),
+      ),
+      title: Text(
+        album.title,
+        style: const TextStyle(color: Color(MyColor.white)),
+      ),
+      subtitle: Text(
+        "Album • ${album.year}",
         style: const TextStyle(color: Color(MyColor.grey)),
       ),
     );
