@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:musicbox/constants/app_colors.dart';
 
-class PageLibrary extends StatelessWidget {
+class PageLibrary extends StatefulWidget {
   const PageLibrary({super.key});
 
   @override
+  State<PageLibrary> createState() => _PageLibraryState();
+}
+
+class _PageLibraryState extends State<PageLibrary> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Thư viện'), centerTitle: true),
-      body: const Center(
-        child: Text(
-          'LIBRARY PAGE',
-          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+      backgroundColor: Color(MyColor.pr1),
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [],
         ),
       ),
     );
