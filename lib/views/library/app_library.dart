@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:musicbox/constants/app_colors.dart';
+import 'package:musicbox/models/songs_model.dart';
 
 class PageLibrary extends StatefulWidget {
   const PageLibrary({super.key});
@@ -95,10 +96,33 @@ class _PageLibraryState extends State<PageLibrary> {
 
   Widget _libraryList() {
     return ListView.builder(
-      itemCount: 0,
+      itemCount: SongModel.mockSongs.length,
       itemBuilder: (context, index) {
-        return const SizedBox();
+        final song = SongModel.mockSongs[index];
+        return _songItem(song);
       },
+    );
+  }
+
+  Widget _songItem(SongModel song) {
+    return ListTile(
+      leading: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: Image.asset(
+          song.imageUrl,
+          width: 60,
+          height: 60,
+          fit: BoxFit.cover,
+        ),
+      ),
+      title: Text(
+        song.title,
+        style: const TextStyle(color: Color(MyColor.white)),
+      ),
+      subtitle: Text(
+        song.country,
+        style: const TextStyle(color: Color(MyColor.grey)),
+      ),
     );
   }
 }
