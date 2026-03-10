@@ -9,6 +9,10 @@ class PageLibrary extends StatefulWidget {
 }
 
 class _PageLibraryState extends State<PageLibrary> {
+  int selectedTab = 0;
+
+  final List<String> tabs = ["All", "Songs", "Albums", "Artists"];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +20,7 @@ class _PageLibraryState extends State<PageLibrary> {
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [_header()],
+          children: [_header(), _tabs()],
         ),
       ),
     );
@@ -44,6 +48,42 @@ class _PageLibraryState extends State<PageLibrary> {
             ],
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _tabs() {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Row(
+        children: List.generate(tabs.length, (index) => _tabItem(index)),
+      ),
+    );
+  }
+
+  Widget _tabItem(int index) {
+    final bool selected = selectedTab == index;
+
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          selectedTab = index;
+        });
+      },
+      child: Container(
+        margin: const EdgeInsets.only(right: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        decoration: BoxDecoration(
+          color: selected ? Color(MyColor.pr4) : Color(MyColor.white),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Text(
+          tabs[index],
+          style: TextStyle(
+            color: selected ? Color(MyColor.white) : Color(MyColor.black),
+          ),
+        ),
       ),
     );
   }
