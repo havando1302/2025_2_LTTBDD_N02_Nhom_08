@@ -18,7 +18,7 @@ class _HomeCenterState extends State<HomeCenter> {
   final List<Widget> _pages = const [
     HomePage(),
     PageLibrary(),
-    SearchPage(),
+    PageSearch(),
     UserProfilePage(),
   ];
 

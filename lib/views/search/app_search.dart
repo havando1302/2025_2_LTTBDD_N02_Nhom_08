@@ -1,13 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:musicbox/constants/app_colors.dart';
 
-class SearchPage extends StatelessWidget {
-  const SearchPage({super.key});
+class PageSearch extends StatefulWidget {
+  const PageSearch({super.key});
 
+  @override
+  State<PageSearch> createState() => _PageSearchState();
+}
+
+class _PageSearchState extends State<PageSearch> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Tìm kiếm'), centerTitle: true),
-      body: const Center(child: Text('SEARCH PAGE')),
+      backgroundColor: Color(MyColor.pr1),
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [],
+        ),
+      ),
     );
   }
 }
