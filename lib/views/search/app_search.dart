@@ -18,6 +18,15 @@ class _PageSearchState extends State<PageSearch> {
     "Cơn mưa ngang qua",
   ];
 
+  void addRecent(String value) {
+    if (value.trim().isEmpty) return;
+
+    setState(() {
+      recentSearch.remove(value);
+      recentSearch.insert(0, value);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,6 +63,9 @@ class _PageSearchState extends State<PageSearch> {
             Expanded(
               child: TextField(
                 controller: searchController,
+                onSubmitted: (value) {
+                  addRecent(value);
+                },
                 decoration: const InputDecoration(
                   hintText: "Tìm kiếm bài hát, nghệ sĩ, album",
                   hintStyle: TextStyle(color: Colors.white70),
@@ -109,6 +121,14 @@ class _PageSearchState extends State<PageSearch> {
                     fontSize: 16,
                   ),
                 ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    recentSearch.removeAt(index);
+                  });
+                },
+                child: const Icon(Icons.close, color: Color(MyColor.grey)),
               ),
             ],
           ),
