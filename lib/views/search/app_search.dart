@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:musicbox/models/songs_model.dart';
 import 'package:musicbox/constants/app_colors.dart';
 
 class PageSearch extends StatefulWidget {
@@ -40,6 +41,10 @@ class _PageSearchState extends State<PageSearch> {
             _title("Tìm kiếm gần đây"),
             const SizedBox(height: 10),
             _recentList(),
+            const SizedBox(height: 20),
+            _title("Bài hát phổ biến"),
+            const SizedBox(height: 10),
+            Expanded(child: _popularSongs()),
           ],
         ),
       ),
@@ -133,6 +138,16 @@ class _PageSearchState extends State<PageSearch> {
             ],
           ),
         );
+      },
+    );
+  }
+
+  Widget _popularSongs() {
+    return ListView.builder(
+      itemCount: SongModel.mockSongs.length,
+      itemBuilder: (context, index) {
+        final song = SongModel.mockSongs[index];
+        return ListTile(title: Text(song.title));
       },
     );
   }
