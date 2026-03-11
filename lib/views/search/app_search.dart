@@ -147,8 +147,49 @@ class _PageSearchState extends State<PageSearch> {
       itemCount: SongModel.mockSongs.length,
       itemBuilder: (context, index) {
         final song = SongModel.mockSongs[index];
-        return ListTile(title: Text(song.title));
+        return _songItem(song);
       },
+    );
+  }
+
+  Widget _songItem(SongModel song) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+      decoration: BoxDecoration(
+        color: Color(MyColor.pr5),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: ListTile(
+        onTap: () {
+          print(song.title);
+        },
+        leading: ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Image.asset(
+            song.imageUrl,
+            width: 60,
+            height: 60,
+            fit: BoxFit.cover,
+          ),
+        ),
+        title: Text(
+          song.title,
+          style: const TextStyle(
+            color: Color(MyColor.white),
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        subtitle: Text(
+          song.country,
+          style: const TextStyle(color: Color(MyColor.grey)),
+        ),
+        trailing: IconButton(
+          icon: const Icon(Icons.play_circle_fill, color: Color(MyColor.white)),
+          onPressed: () {
+            print("Play ${song.title}");
+          },
+        ),
+      ),
     );
   }
 }
