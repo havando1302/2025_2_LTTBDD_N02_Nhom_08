@@ -11,6 +11,13 @@ class PageSearch extends StatefulWidget {
 class _PageSearchState extends State<PageSearch> {
   final TextEditingController searchController = TextEditingController();
 
+  List<String> recentSearch = [
+    "Sơn Tùng MTP",
+    "MCK",
+    "Vũ",
+    "Cơn mưa ngang qua",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +25,13 @@ class _PageSearchState extends State<PageSearch> {
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [_searchBar()],
+          children: [
+            _searchBar(),
+            const SizedBox(height: 20),
+            _title("Tìm kiếm gần đây"),
+            const SizedBox(height: 10),
+            _recentList(),
+          ],
         ),
       ),
     );
@@ -52,6 +65,55 @@ class _PageSearchState extends State<PageSearch> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _title(String text) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Text(
+        text,
+        style: const TextStyle(
+          fontSize: 22,
+          fontWeight: FontWeight.bold,
+          color: Color(MyColor.white),
+        ),
+      ),
+    );
+  }
+
+  Widget _recentList() {
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: recentSearch.length,
+      itemBuilder: (context, index) {
+        final item = recentSearch[index];
+
+        return Container(
+          margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+          padding: const EdgeInsets.all(15),
+          decoration: BoxDecoration(
+            color: Color(MyColor.pr5),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Row(
+            children: [
+              const Icon(Icons.history, color: Color(MyColor.grey)),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  item,
+                  style: const TextStyle(
+                    color: Color(MyColor.white),
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }
