@@ -33,5 +33,26 @@
   "member1": "Thành viên 1",
   "member2": "Thành viên 2",
   "studentId": "MSSV",
-  "supervisor": "Giáo viên hướng dẫn"
+  "supervisor": "Giáo viên hướng dẫn",
+  "collection": "Tuyển tập",
+  "recommendedForYou": "Gợi ý cho bạn",
+  "topChart": "Top BXH",
+  "seeAll": "Xem tất cả >>",
+  "newRelease": "Mới phát hành",
+
+  "all": "Tất cả",
+  "vietnam": "Việt Nam",
+  "international": "Quốc tế",
+
+  "share": "Chia sẻ",
+  "premiumMusic": "Nghe nhạc không quảng cáo",
+  "premium": "Premium",
+  "addToFavoriteSongs": "Thêm vào Bài hát ưa thích",
+  "addToPlaylist": "Thêm vào danh sách phát",
+  "addToQueue": "Thêm vào Danh sách chờ",
+  "goToRadio": "Truy cập radio",
+  "goToAlbum": "Chuyển đến album",
+  "goToArtist": "Chuyển tới trang nghệ sĩ",
+  "goToArtistConcert": "Chuyển đến buổi biểu diễn của nghệ sĩ",
+  "songCredits": "Xem thông tin ghi công của bài hát"
 }

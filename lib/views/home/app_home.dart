@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:musicbox/models/songs_model.dart';
 import 'package:musicbox/models/albums_model.dart';
 import 'package:musicbox/constants/app_colors.dart';
+import 'package:musicbox/translates/app_localizations.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -30,15 +31,15 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final topSongs = SongModel.mockSongs.take(5).toList();
-
+    final t = AppLocalizations.of(context)!;
     return Scaffold(
       backgroundColor: Color(MyColor.pr1),
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         children: [
           // Những album nổi bật.
-          const Text(
-            'Tuyển tập',
+          Text(
+            t.collection,
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
@@ -57,7 +58,7 @@ class _HomePageState extends State<HomePage> {
 
                 return Container(
                   width: 140,
-                  margin: const EdgeInsets.only(right: 12),
+                  margin: EdgeInsets.only(right: 12),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -75,14 +76,14 @@ class _HomePageState extends State<HomePage> {
                         album.title,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontWeight: FontWeight.w600,
                           color: Color(MyColor.white),
                         ),
                       ),
                       Text(
-                        'Năm ${album.year}',
-                        style: const TextStyle(
+                        "${t.year} ${album.year}",
+                        style: TextStyle(
                           fontSize: 12,
                           color: Color(MyColor.grey),
                         ),
@@ -95,8 +96,8 @@ class _HomePageState extends State<HomePage> {
           ),
           const SizedBox(height: 20),
           // Những bài hát gợi ý cho người dùng.
-          const Text(
-            'Gợi ý cho bạn',
+          Text(
+            t.recommendedForYou,
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
@@ -107,14 +108,14 @@ class _HomePageState extends State<HomePage> {
 
           ListView.separated(
             shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
+            physics: NeverScrollableScrollPhysics(),
             itemCount: SongModel.mockSongs.length,
             separatorBuilder: (_, __) => const SizedBox(height: 12),
             itemBuilder: (context, index) {
               final song = SongModel.mockSongs[index];
 
               return Container(
-                padding: const EdgeInsets.all(12),
+                padding: EdgeInsets.all(12),
                 decoration: BoxDecoration(
                   color: Color(MyColor.pr3),
                   borderRadius: BorderRadius.circular(16),
@@ -122,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                     BoxShadow(
                       color: Colors.black.withOpacity(0.08),
                       blurRadius: 8,
-                      offset: const Offset(0, 4),
+                      offset: Offset(0, 4),
                     ),
                   ],
                 ),
@@ -154,7 +155,7 @@ class _HomePageState extends State<HomePage> {
                           const SizedBox(height: 4),
                           Text(
                             song.country,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 12,
                               color: Color(MyColor.grey),
                             ),
@@ -188,8 +189,8 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Top BXH',
+                Text(
+                  t.topChart,
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -251,10 +252,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
 
-                        const Icon(
-                          Icons.play_arrow,
-                          color: Color(MyColor.white),
-                        ),
+                        Icon(Icons.play_arrow, color: Color(MyColor.white)),
                       ],
                     ),
                   );
@@ -263,8 +261,8 @@ class _HomePageState extends State<HomePage> {
                 Center(
                   child: TextButton(
                     onPressed: () {},
-                    child: const Text(
-                      'Xem tất cả >>',
+                    child: Text(
+                      t.seeAll,
                       style: TextStyle(color: Color(MyColor.pr4)),
                     ),
                   ),
@@ -275,8 +273,8 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(height: 20),
 
           // Những bài hát mới phát hành theo quốc gia.
-          const Text(
-            'Mới phát hành',
+          Text(
+            t.newRelease,
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
@@ -286,7 +284,7 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(height: 8),
 
           Row(
-            children: ['Tất cả', 'Việt Nam', 'Quốc tế'].map((title) {
+            children: [t.all, t.vietnam, t.international].map((title) {
               final isSelected = selectedCountry == title;
 
               return Padding(
@@ -391,6 +389,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _showMenu() {
+    final t = AppLocalizations.of(context)!;
     showModalBottomSheet(
       context: context,
       backgroundColor: Color(MyColor.pr1),
@@ -418,7 +417,7 @@ class _HomePageState extends State<HomePage> {
 
                 ListTile(
                   leading: Icon(Icons.share_outlined, color: Colors.white),
-                  title: Text("Chia sẻ", style: TextStyle(color: Colors.white)),
+                  title: Text(t.share, style: TextStyle(color: Colors.white)),
                   onTap: () {
                     Navigator.pop(context);
                   },
@@ -427,7 +426,7 @@ class _HomePageState extends State<HomePage> {
                 ListTile(
                   leading: Icon(Icons.diamond_outlined, color: Colors.white),
                   title: Text(
-                    "Nghe nhạc không quảng cáo",
+                    t.premiumMusic,
                     style: TextStyle(color: Colors.white),
                   ),
                   trailing: Text(
@@ -442,7 +441,7 @@ class _HomePageState extends State<HomePage> {
                 ListTile(
                   leading: Icon(Icons.favorite_border, color: Colors.white),
                   title: Text(
-                    "Thêm vào Bài hát ưa thích",
+                    t.addToFavoriteSongs,
                     style: TextStyle(color: Colors.white),
                   ),
                   onTap: () {
@@ -453,7 +452,7 @@ class _HomePageState extends State<HomePage> {
                 ListTile(
                   leading: Icon(Icons.playlist_add, color: Colors.white),
                   title: Text(
-                    "Thêm vào danh sách phát",
+                    t.addToPlaylist,
                     style: TextStyle(color: Colors.white),
                   ),
                   onTap: () {
@@ -464,7 +463,7 @@ class _HomePageState extends State<HomePage> {
                 ListTile(
                   leading: Icon(Icons.queue_music, color: Colors.white),
                   title: Text(
-                    "Thêm vào Danh sách chờ",
+                    t.addToQueue,
                     style: TextStyle(color: Colors.white),
                   ),
                   onTap: () {
@@ -475,7 +474,7 @@ class _HomePageState extends State<HomePage> {
                 ListTile(
                   leading: Icon(Icons.radio, color: Colors.white),
                   title: Text(
-                    "Truy cập radio",
+                    t.goToRadio,
                     style: TextStyle(color: Colors.white),
                   ),
                   onTap: () {
@@ -486,7 +485,7 @@ class _HomePageState extends State<HomePage> {
                 ListTile(
                   leading: Icon(Icons.album_outlined, color: Colors.white),
                   title: Text(
-                    "Chuyển đến album",
+                    t.goToAlbum,
                     style: TextStyle(color: Colors.white),
                   ),
                   onTap: () {
@@ -497,7 +496,7 @@ class _HomePageState extends State<HomePage> {
                 ListTile(
                   leading: Icon(Icons.person_outline, color: Colors.white),
                   title: Text(
-                    "Chuyển tới trang nghệ sĩ",
+                    t.goToArtist,
                     style: TextStyle(color: Colors.white),
                   ),
                   onTap: () {
@@ -508,7 +507,7 @@ class _HomePageState extends State<HomePage> {
                 ListTile(
                   leading: Icon(Icons.event, color: Colors.white),
                   title: Text(
-                    "Chuyển đến buổi biểu diễn của nghệ sĩ",
+                    t.goToArtistConcert,
                     style: TextStyle(color: Colors.white),
                   ),
                   onTap: () {
@@ -519,7 +518,7 @@ class _HomePageState extends State<HomePage> {
                 ListTile(
                   leading: Icon(Icons.music_note_outlined, color: Colors.white),
                   title: Text(
-                    "Xem thông tin ghi công của bài hát",
+                    t.songCredits,
                     style: TextStyle(color: Colors.white),
                   ),
                   onTap: () {

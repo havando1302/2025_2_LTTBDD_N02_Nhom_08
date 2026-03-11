@@ -33,5 +33,26 @@
   "member1": "Member 1",
   "member2": "Member 2",
   "studentId": "Student ID",
-  "supervisor": "Supervisor"
+  "supervisor": "Supervisor",
+  "collection": "Collections",
+  "recommendedForYou": "Recommended for you",
+  "topChart": "Top Chart",
+  "seeAll": "See all >>",
+  "newRelease": "New Releases",
+
+  "all": "All",
+  "vietnam": "Vietnam",
+  "international": "International",
+
+  "share": "Share",
+  "premiumMusic": "Listen without ads",
+  "premium": "Premium",
+  "addToFavoriteSongs": "Add to Favorite Songs",
+  "addToPlaylist": "Add to Playlist",
+  "addToQueue": "Add to Queue",
+  "goToRadio": "Go to Radio",
+  "goToAlbum": "Go to Album",
+  "goToArtist": "Go to Artist",
+  "goToArtistConcert": "Go to Artist Concert",
+  "songCredits": "View Song Credits"
 }

@@ -109,4 +109,61 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get supervisor => 'Giáo viên hướng dẫn';
+
+  @override
+  String get collection => 'Tuyển tập';
+
+  @override
+  String get recommendedForYou => 'Gợi ý cho bạn';
+
+  @override
+  String get topChart => 'Top BXH';
+
+  @override
+  String get seeAll => 'Xem tất cả >>';
+
+  @override
+  String get newRelease => 'Mới phát hành';
+
+  @override
+  String get all => 'Tất cả';
+
+  @override
+  String get vietnam => 'Việt Nam';
+
+  @override
+  String get international => 'Quốc tế';
+
+  @override
+  String get share => 'Chia sẻ';
+
+  @override
+  String get premiumMusic => 'Nghe nhạc không quảng cáo';
+
+  @override
+  String get premium => 'Premium';
+
+  @override
+  String get addToFavoriteSongs => 'Thêm vào Bài hát ưa thích';
+
+  @override
+  String get addToPlaylist => 'Thêm vào danh sách phát';
+
+  @override
+  String get addToQueue => 'Thêm vào Danh sách chờ';
+
+  @override
+  String get goToRadio => 'Truy cập radio';
+
+  @override
+  String get goToAlbum => 'Chuyển đến album';
+
+  @override
+  String get goToArtist => 'Chuyển tới trang nghệ sĩ';
+
+  @override
+  String get goToArtistConcert => 'Chuyển đến buổi biểu diễn của nghệ sĩ';
+
+  @override
+  String get songCredits => 'Xem thông tin ghi công của bài hát';
 }

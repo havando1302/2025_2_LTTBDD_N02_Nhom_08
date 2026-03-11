@@ -109,4 +109,61 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get supervisor => 'Supervisor';
+
+  @override
+  String get collection => 'Collections';
+
+  @override
+  String get recommendedForYou => 'Recommended for you';
+
+  @override
+  String get topChart => 'Top Chart';
+
+  @override
+  String get seeAll => 'See all >>';
+
+  @override
+  String get newRelease => 'New Releases';
+
+  @override
+  String get all => 'All';
+
+  @override
+  String get vietnam => 'Vietnam';
+
+  @override
+  String get international => 'International';
+
+  @override
+  String get share => 'Share';
+
+  @override
+  String get premiumMusic => 'Listen without ads';
+
+  @override
+  String get premium => 'Premium';
+
+  @override
+  String get addToFavoriteSongs => 'Add to Favorite Songs';
+
+  @override
+  String get addToPlaylist => 'Add to Playlist';
+
+  @override
+  String get addToQueue => 'Add to Queue';
+
+  @override
+  String get goToRadio => 'Go to Radio';
+
+  @override
+  String get goToAlbum => 'Go to Album';
+
+  @override
+  String get goToArtist => 'Go to Artist';
+
+  @override
+  String get goToArtistConcert => 'Go to Artist Concert';
+
+  @override
+  String get songCredits => 'View Song Credits';
 }

@@ -301,6 +301,120 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Supervisor'**
   String get supervisor;
+
+  /// No description provided for @collection.
+  ///
+  /// In en, this message translates to:
+  /// **'Collections'**
+  String get collection;
+
+  /// No description provided for @recommendedForYou.
+  ///
+  /// In en, this message translates to:
+  /// **'Recommended for you'**
+  String get recommendedForYou;
+
+  /// No description provided for @topChart.
+  ///
+  /// In en, this message translates to:
+  /// **'Top Chart'**
+  String get topChart;
+
+  /// No description provided for @seeAll.
+  ///
+  /// In en, this message translates to:
+  /// **'See all >>'**
+  String get seeAll;
+
+  /// No description provided for @newRelease.
+  ///
+  /// In en, this message translates to:
+  /// **'New Releases'**
+  String get newRelease;
+
+  /// No description provided for @all.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get all;
+
+  /// No description provided for @vietnam.
+  ///
+  /// In en, this message translates to:
+  /// **'Vietnam'**
+  String get vietnam;
+
+  /// No description provided for @international.
+  ///
+  /// In en, this message translates to:
+  /// **'International'**
+  String get international;
+
+  /// No description provided for @share.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get share;
+
+  /// No description provided for @premiumMusic.
+  ///
+  /// In en, this message translates to:
+  /// **'Listen without ads'**
+  String get premiumMusic;
+
+  /// No description provided for @premium.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium'**
+  String get premium;
+
+  /// No description provided for @addToFavoriteSongs.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to Favorite Songs'**
+  String get addToFavoriteSongs;
+
+  /// No description provided for @addToPlaylist.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to Playlist'**
+  String get addToPlaylist;
+
+  /// No description provided for @addToQueue.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to Queue'**
+  String get addToQueue;
+
+  /// No description provided for @goToRadio.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to Radio'**
+  String get goToRadio;
+
+  /// No description provided for @goToAlbum.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to Album'**
+  String get goToAlbum;
+
+  /// No description provided for @goToArtist.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to Artist'**
+  String get goToArtist;
+
+  /// No description provided for @goToArtistConcert.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to Artist Concert'**
+  String get goToArtistConcert;
+
+  /// No description provided for @songCredits.
+  ///
+  /// In en, this message translates to:
+  /// **'View Song Credits'**
+  String get songCredits;
 }
 
 class _AppLocalizationsDelegate
