@@ -19,12 +19,24 @@ class _PageSearchState extends State<PageSearch> {
     "Cơn mưa ngang qua",
   ];
 
+  List<SongModel> searchResults = [];
+
   void addRecent(String value) {
     if (value.trim().isEmpty) return;
 
     setState(() {
       recentSearch.remove(value);
       recentSearch.insert(0, value);
+    });
+  }
+
+  void searchSong(String query) {
+    final results = SongModel.mockSongs.where((song) {
+      return song.title.toLowerCase().contains(query.toLowerCase());
+    }).toList();
+
+    setState(() {
+      searchResults = results;
     });
   }
 
@@ -37,14 +49,22 @@ class _PageSearchState extends State<PageSearch> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _searchBar(),
-            const SizedBox(height: 20),
-            _title("Tìm kiếm gần đây"),
-            const SizedBox(height: 10),
-            _recentList(),
-            const SizedBox(height: 20),
-            _title("Bài hát phổ biến"),
-            const SizedBox(height: 10),
-            Expanded(child: _popularSongs()),
+
+            if (searchController.text.isEmpty) ...[
+              const SizedBox(height: 20),
+              _title("Tìm kiếm gần đây"),
+              const SizedBox(height: 10),
+              _recentList(),
+              const SizedBox(height: 20),
+              _title("Bài hát phổ biến"),
+              const SizedBox(height: 10),
+              Expanded(child: _popularSongs()),
+            ] else ...[
+              const SizedBox(height: 20),
+              _title("Kết quả tìm kiếm"),
+              const SizedBox(height: 10),
+              Expanded(child: _searchResult()),
+            ],
           ],
         ),
       ),
@@ -68,6 +88,9 @@ class _PageSearchState extends State<PageSearch> {
             Expanded(
               child: TextField(
                 controller: searchController,
+                onChanged: (value) {
+                  searchSong(value);
+                },
                 onSubmitted: (value) {
                   addRecent(value);
                 },
@@ -147,6 +170,25 @@ class _PageSearchState extends State<PageSearch> {
       itemCount: SongModel.mockSongs.length,
       itemBuilder: (context, index) {
         final song = SongModel.mockSongs[index];
+        return _songItem(song);
+      },
+    );
+  }
+
+  Widget _searchResult() {
+    if (searchResults.isEmpty) {
+      return const Center(
+        child: Text(
+          "Không tìm thấy bài hát",
+          style: TextStyle(color: Colors.white),
+        ),
+      );
+    }
+
+    return ListView.builder(
+      itemCount: searchResults.length,
+      itemBuilder: (context, index) {
+        final song = searchResults[index];
         return _songItem(song);
       },
     );

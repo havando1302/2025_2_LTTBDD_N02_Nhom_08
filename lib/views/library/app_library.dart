@@ -3,6 +3,7 @@ import 'package:musicbox/models/songs_model.dart';
 import 'package:musicbox/models/albums_model.dart';
 import 'package:musicbox/models/artist_model.dart';
 import 'package:musicbox/constants/app_colors.dart';
+import 'package:musicbox/translates/app_localizations.dart';
 
 class PageLibrary extends StatefulWidget {
   const PageLibrary({super.key});
@@ -59,14 +60,15 @@ class _PageLibraryState extends State<PageLibrary> {
   }
 
   Widget _header() {
+    final t = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Text(
-            "Thư viện",
-            style: TextStyle(
+          Text(
+            t.library,
+            style: const TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,
               color: Color(MyColor.white),

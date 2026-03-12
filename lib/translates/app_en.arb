@@ -54,5 +54,6 @@
   "goToAlbum": "Go to Album",
   "goToArtist": "Go to Artist",
   "goToArtistConcert": "Go to Artist Concert",
-  "songCredits": "View Song Credits"
+  "songCredits": "View Song Credits",
+  "library": "Library"
 }
