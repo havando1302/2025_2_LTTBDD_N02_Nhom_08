@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:musicbox/models/songs_model.dart';
 import 'package:musicbox/constants/app_colors.dart';
+import 'package:musicbox/translates/app_localizations.dart';
 
 class PageSearch extends StatefulWidget {
   const PageSearch({super.key});
@@ -42,6 +43,7 @@ class _PageSearchState extends State<PageSearch> {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
     return Scaffold(
       backgroundColor: Color(MyColor.pr1),
       body: SafeArea(
@@ -52,16 +54,16 @@ class _PageSearchState extends State<PageSearch> {
 
             if (searchController.text.isEmpty) ...[
               const SizedBox(height: 20),
-              _title("Tìm kiếm gần đây"),
+              _title(t.recentSearch),
               const SizedBox(height: 10),
               _recentList(),
               const SizedBox(height: 20),
-              _title("Bài hát phổ biến"),
+              _title(t.popularSong),
               const SizedBox(height: 10),
               Expanded(child: _popularSongs()),
             ] else ...[
               const SizedBox(height: 20),
-              _title("Kết quả tìm kiếm"),
+              _title(t.resultSearch),
               const SizedBox(height: 10),
               Expanded(child: _searchResult()),
             ],
@@ -72,6 +74,7 @@ class _PageSearchState extends State<PageSearch> {
   }
 
   Widget _searchBar() {
+    final t = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Container(
@@ -94,9 +97,9 @@ class _PageSearchState extends State<PageSearch> {
                 onSubmitted: (value) {
                   addRecent(value);
                 },
-                decoration: const InputDecoration(
-                  hintText: "Tìm kiếm bài hát, nghệ sĩ, album",
-                  hintStyle: TextStyle(color: Colors.white70),
+                decoration: InputDecoration(
+                  hintText: t.hintSearch,
+                  hintStyle: const TextStyle(color: Colors.white70),
                   border: InputBorder.none,
                 ),
                 style: const TextStyle(color: Colors.white),
@@ -176,12 +179,10 @@ class _PageSearchState extends State<PageSearch> {
   }
 
   Widget _searchResult() {
+    final t = AppLocalizations.of(context)!;
     if (searchResults.isEmpty) {
-      return const Center(
-        child: Text(
-          "Không tìm thấy bài hát",
-          style: TextStyle(color: Colors.white),
-        ),
+      return Center(
+        child: Text(t.notResult, style: const TextStyle(color: Colors.white)),
       );
     }
 

@@ -166,4 +166,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get songCredits => 'View Song Credits';
+
+  @override
+  String get hintSearch => 'Search song, artist, album';
+
+  @override
+  String get recentSearch => 'Recent Search';
+
+  @override
+  String get popularSong => 'Poupular Song';
+
+  @override
+  String get resultSearch => 'Result Search';
+
+  @override
+  String get notResult => 'No Results Found';
 }

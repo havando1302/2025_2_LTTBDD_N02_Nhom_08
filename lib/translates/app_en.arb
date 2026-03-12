@@ -55,5 +55,10 @@
   "goToArtist": "Go to Artist",
   "goToArtistConcert": "Go to Artist Concert",
   "songCredits": "View Song Credits",
-  "library": "Library"
+  "library": "Library",
+  "hintSearch": "Search song, artist, album",
+  "recentSearch": "Recent Search",
+  "popularSong": "Poupular Song",
+  "resultSearch": "Result Search",
+  "notResult": "No Results Found"
 }

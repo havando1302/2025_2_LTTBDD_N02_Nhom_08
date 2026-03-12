@@ -166,4 +166,19 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get songCredits => 'Xem thông tin ghi công của bài hát';
+
+  @override
+  String get hintSearch => 'Tìm kiếm bài hát, nghệ sĩ, album';
+
+  @override
+  String get recentSearch => 'Tìm kiếm gần đây';
+
+  @override
+  String get popularSong => 'Bài hát phổ biến';
+
+  @override
+  String get resultSearch => 'Kết quả tìm kiếm';
+
+  @override
+  String get notResult => 'Không tìm thấy kết quả';
 }

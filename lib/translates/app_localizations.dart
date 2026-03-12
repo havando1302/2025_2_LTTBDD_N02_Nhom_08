@@ -415,6 +415,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'View Song Credits'**
   String get songCredits;
+
+  /// No description provided for @hintSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Search song, artist, album'**
+  String get hintSearch;
+
+  /// No description provided for @recentSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent Search'**
+  String get recentSearch;
+
+  /// No description provided for @popularSong.
+  ///
+  /// In en, this message translates to:
+  /// **'Poupular Song'**
+  String get popularSong;
+
+  /// No description provided for @resultSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Result Search'**
+  String get resultSearch;
+
+  /// No description provided for @notResult.
+  ///
+  /// In en, this message translates to:
+  /// **'No Results Found'**
+  String get notResult;
 }
 
 class _AppLocalizationsDelegate

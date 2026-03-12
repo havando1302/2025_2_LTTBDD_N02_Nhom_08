@@ -55,5 +55,10 @@
   "goToArtist": "Chuyển tới trang nghệ sĩ",
   "goToArtistConcert": "Chuyển đến buổi biểu diễn của nghệ sĩ",
   "songCredits": "Xem thông tin ghi công của bài hát",
-  "library": "Thư viện"
+  "library": "Thư viện",
+  "hintSearch": "Tìm kiếm bài hát, nghệ sĩ, album",
+  "recentSearch": "Tìm kiếm gần đây",
+  "popularSong": "Bài hát phổ biến",
+  "resultSearch": "Kết quả tìm kiếm",
+  "notResult": "Không tìm thấy kết quả"
 }
