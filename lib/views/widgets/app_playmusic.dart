@@ -53,5 +53,12 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
   }
 
   @override
-  Widget build(BuildContext context) {}
+  Widget build(BuildContext context) {
+    final SongModel song = controller.currentSong ?? widget.song;
+    final artist = ArtistModel.mockArtists.firstWhere(
+      (a) => a.id == song.artistId,
+    );
+
+    return Scaffold(backgroundColor: Color(MyColor.pr1));
+  }
 }
