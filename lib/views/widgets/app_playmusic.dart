@@ -59,6 +59,55 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
       (a) => a.id == song.artistId,
     );
 
-    return Scaffold(backgroundColor: Color(MyColor.pr1));
+    return Scaffold(
+      backgroundColor: Color(MyColor.pr1),
+      appBar: AppBar(
+        backgroundColor: Color(MyColor.pr1),
+        elevation: 0,
+        title: Text(
+          song.title,
+          style: const TextStyle(color: Color(MyColor.white)),
+        ),
+        iconTheme: const IconThemeData(color: Color(MyColor.white)),
+      ),
+
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          children: [
+            const SizedBox(height: 30),
+
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image.asset(
+                song.imageUrl,
+                height: 260,
+                width: 260,
+                fit: BoxFit.cover,
+              ),
+            ),
+
+            const SizedBox(height: 30),
+
+            Text(
+              song.title,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: Color(MyColor.white),
+              ),
+            ),
+
+            const SizedBox(height: 6),
+
+            Text(
+              artist.name,
+              style: const TextStyle(color: Color(MyColor.grey), fontSize: 14),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
