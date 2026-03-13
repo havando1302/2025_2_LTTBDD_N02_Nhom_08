@@ -105,6 +105,88 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
               artist.name,
               style: const TextStyle(color: Color(MyColor.grey), fontSize: 14),
             ),
+            const SizedBox(height: 30),
+
+            SliderTheme(
+              data: SliderTheme.of(context).copyWith(
+                activeTrackColor: Color(MyColor.pr4),
+                inactiveTrackColor: Color(MyColor.se3),
+                thumbColor: Color(MyColor.pr4),
+                overlayColor: Color(MyColor.pr4).withOpacity(0.2),
+              ),
+              child: Slider(
+                value: position.inSeconds.toDouble(),
+                min: 0,
+                max: duration.inSeconds == 0
+                    ? 1
+                    : duration.inSeconds.toDouble(),
+                onChanged: (value) {
+                  controller.seek(Duration(seconds: value.toInt()));
+                },
+              ),
+            ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  formatTime(position),
+                  style: const TextStyle(color: Color(MyColor.grey)),
+                ),
+                Text(
+                  formatTime(duration),
+                  style: const TextStyle(color: Color(MyColor.grey)),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 30),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.skip_previous),
+                  iconSize: 40,
+                  color: Color(MyColor.white),
+                  onPressed: () {
+                    controller.prevSong();
+                  },
+                ),
+
+                Container(
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color(MyColor.pr4),
+                  ),
+                  child: IconButton(
+                    icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
+                    iconSize: 40,
+                    color: Colors.white,
+                    onPressed: () async {
+                      if (isPlaying) {
+                        await controller.pause();
+                      } else {
+                        await controller.resume();
+                      }
+
+                      setState(() {
+                        isPlaying = !isPlaying;
+                      });
+                    },
+                  ),
+                ),
+
+                IconButton(
+                  icon: const Icon(Icons.skip_next),
+                  iconSize: 40,
+                  color: Color(MyColor.white),
+                  onPressed: () {
+                    controller.nextSong();
+                  },
+                ),
+              ],
+            ),
           ],
         ),
       ),
