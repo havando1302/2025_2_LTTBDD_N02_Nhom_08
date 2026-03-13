@@ -3,6 +3,7 @@ import 'package:musicbox/models/songs_model.dart';
 import 'package:musicbox/models/albums_model.dart';
 import 'package:musicbox/constants/app_colors.dart';
 import 'package:musicbox/translates/app_localizations.dart';
+import 'package:musicbox/views/widgets/app_playmusic.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -252,7 +253,23 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
 
-                        Icon(Icons.play_arrow, color: Color(MyColor.white)),
+                        IconButton(
+                          icon: const Icon(
+                            Icons.play_arrow,
+                            color: Colors.white,
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => MusicPlayerScreen(
+                                  song: song,
+                                  playlist: topSongs,
+                                ),
+                              ),
+                            );
+                          },
+                        ),
                       ],
                     ),
                   );
