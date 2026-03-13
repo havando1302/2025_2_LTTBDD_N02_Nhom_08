@@ -22,7 +22,7 @@ Dự án được thực hiện nhằm áp dụng các kiến thức về lập 
 
 ## Nguyễn Quang Thọ - 23010162
 
-# 7. Công nghệ sử dụng
+# 4. Công nghệ sử dụng
 
 Ngôn ngữ lập trình: Dart  
 
@@ -36,7 +36,7 @@ Thư viện sử dụng:
 - material.dart (xây dựng giao diện theo chuẩn Material Design)
 - provider (quản lý trạng thái ứng dụng)
 
-# 10. Cấu trúc thư mục dự án
+# 5. Cấu trúc thư mục dự án
 ```assets/
 ├── audios/ # Lưu trữ các tệp âm thanh
 ├── icons/ # Các biểu tượng sử dụng trong giao diện
@@ -57,7 +57,7 @@ lib/
 ├── search/
 └── widgets/
 ```
-# 11. Hướng dẫn cài đặt và chạy dự án
+# 6. Hướng dẫn cài đặt và chạy dự án
 
 ## Bước 1: Clone dự án 
 ```https://github.com/havando1302/2025_2_LTTBDD_N02_Nhom_08.git```
