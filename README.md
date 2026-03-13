@@ -60,9 +60,10 @@ lib/
 # 11. Hướng dẫn cài đặt và chạy dự án
 
 ## Bước 1: Clone dự án 
-
+```https://github.com/havando1302/2025_2_LTTBDD_N02_Nhom_08.git```
 ## Bước 2: Di chuyển vào thư mục dự án
-
+```cd 2025_2_LTTBDD_N02_Nhom_08```
 ## Bước 3: Cài đặt các thư viện cần thiết
-
+```flutter pub get```
 ## Bước 4: Chạy ứng dụng
+```flutter run```
