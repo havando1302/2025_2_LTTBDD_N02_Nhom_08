@@ -35,7 +35,8 @@ Công cụ phát triển:
 Thư viện sử dụng:
 - material.dart (xây dựng giao diện theo chuẩn Material Design)
 - provider (quản lý trạng thái ứng dụng)
-
+- audioplayers (phát nhạc trên ứng dụng)
+  
 # 5. Cấu trúc thư mục dự án
 ```assets/
 ├── audios/ # Lưu trữ các tệp âm thanh
@@ -50,12 +51,12 @@ lib/
 ├── router/ # Cấu hình điều hướng giữa các màn hình
 ├── translates/ # Hỗ trợ đa ngôn ngữ
 └── views/ # Các màn hình giao diện
-├── home/
-├── library/
-├── login/
-├── profile/
-├── search/
-└── widgets/
+  ├── home/
+  ├── library/
+  ├── login/
+  ├── profile/
+  ├── search/
+  └── widgets/
 ```
 # 6. Hướng dẫn cài đặt và chạy dự án
 
