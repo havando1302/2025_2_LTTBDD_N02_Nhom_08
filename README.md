@@ -4,7 +4,9 @@
 
 # 1. Thông tin môn học
 Môn học: Lập trình cho thiết bị di động  
+
 Giảng viên hướng dẫn: ThS. Nguyễn Xuân Quế  
+
 Lớp tín chỉ: CSE702027-1-2-25 (N02)
 
 # 2. Thông tin đề tài
@@ -18,9 +20,9 @@ Dự án được thực hiện nhằm áp dụng các kiến thức về lập 
 
 # 3. Thông tin thành viên
 
-## Hà Văn Đô - 23010406
-
-## Nguyễn Quang Thọ - 23010162
+ Hà Văn Đô - 23010406
+ 
+ Nguyễn Quang Thọ - 23010162
 
 # 4. Công nghệ sử dụng
 
